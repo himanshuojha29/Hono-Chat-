@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ollama Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="chat-container">
+        <div class="header">
+            <h1>HONO Chat</h1>
+            <p class="subtitle">Professional AI Assistant Interface</p>
+            <!-- <div class="model-selector">
+                <select id="modelSelect">
+                    <option value="llama2">Llama 2</option>
+                    <option value="codellama">Code Llama</option>
+                    <option value="mistral">Mistral</option>
+                    <option value="neural-chat">Neural Chat</option>
+                    <option value="starling-lm">Starling LM</option>
+                </select>
+            </div> -->
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="message assistant">
+                <div class="message-avatar">AI</div>
+                <div class="message-content">
+                    Hello! I'm your Ollama AI assistant. How can I help you today?
+                </div>
+            </div>
+        </div>
+
+        <div class="message assistant" style="margin-left: 52px;">
+            <div class="typing-indicator" id="typingIndicator">
+                <span>AI is typing</span>
+                <div class="typing-dots">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <div class="input-wrapper">
+                <textarea id="messageInput" placeholder="Type your message here..." rows="1"></textarea>
+                <button id="sendButton" type="button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22,2 15,22 11,13 2,9 22,2"></polygon>
+                    </svg>
+                </button>
+            </div>
+            <button class="clear-button" id="clearButton">Clear Chat</button>
+        </div>
+    </div>
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
