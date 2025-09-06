@@ -1,3 +1,4 @@
+let count = null;
 const socket = io()
 
 socket.on("receive-msg", (data) => {
@@ -8,6 +9,9 @@ socket.on("receive-msg", (data) => {
 
 })
 
+socket.on("user-connected", (data)=>{
+    count.textContent = data ;
+})
 
 let time = null
 socket.on("typing", () => {
@@ -23,6 +27,10 @@ socket.on("typing", () => {
 
 socket.on("clear-chat", ()=>{
     clearChat()
+})
+
+socket.on("user-connected",{
+
 })
 
 
@@ -174,6 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const sendButton = document.getElementById('sendButton');
     const clearButton = document.getElementById('clearButton');
     const messageInput = document.getElementById('messageInput');
+    count = document.getElementById("cnt");
 
     // Send button click
     sendButton.addEventListener('click', sendMessage);

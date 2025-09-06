@@ -12,8 +12,11 @@ const httpServer = http.createServer(app);
 
 const io = new Server(httpServer);
 
+let user = 0;
+
 io.on("connection", (socket) => {
-    console.log('a user connected');
+    user++;
+    io.emit("user-connected", user);
 
     socket.on("send-msg", (data) => {
         socket.broadcast.emit("receive-msg", data)
@@ -28,6 +31,7 @@ io.on("connection", (socket) => {
     })
     
     socket.on('disconnect', () => {
+        user--;
         console.log('user disconnected');
     })
 
